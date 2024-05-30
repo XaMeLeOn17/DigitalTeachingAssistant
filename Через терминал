@@ -1,0 +1,41 @@
+from tkinter import *
+
+
+def login():
+    username = username_entry.get()
+    password = password_entry.get()
+
+    if username == "admin" and password == "admin123":
+        message_label.config(text="Вход выполнен успешно!")
+    else:
+        message_label.config(text="Неправильное имя пользователя или пароль!")
+
+
+root = Tk()
+root.title("Авторизация")
+
+# Создание метки с надписью "Имя пользователя"
+username_label = Label(root, text="Имя пользователя:")
+username_label.pack()
+
+# Создание поля ввода для имени пользователя
+username_entry = Entry(root)
+username_entry.pack()
+
+# Создание метки с надписью "Пароль"
+password_label = Label(root, text="Пароль:")
+password_label.pack()
+
+# Создание поля ввода для пароля
+password_entry = Entry(root, show="*")
+password_entry.pack()
+
+# Создание кнопки "Войти"
+login_button = Button(root, text="Войти", command=login)
+login_button.pack()
+
+# Создание метки для вывода сообщений
+message_label = Label(root, text="")
+message_label.pack()
+
+root.mainloop()
